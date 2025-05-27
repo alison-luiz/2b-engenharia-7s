@@ -1,35 +1,28 @@
-// @ts-check
-import eslint from '@eslint/js'
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import { ESLint } from 'eslint'
 
-export default tseslint.config(
+export default [
 	{
-		ignores: ['eslint.config.mjs']
-	},
-	eslint.configs.recommended,
-	...tseslint.configs.recommendedTypeChecked,
-	eslintPluginPrettierRecommended,
-	{
+		files: ['**/*.{ts,js}'],
 		languageOptions: {
-			globals: {
-				...globals.node,
-				...globals.jest
-			},
-			sourceType: 'commonjs',
+			parser: '@typescript-eslint/parser',
 			parserOptions: {
-				projectService: true,
-				tsconfigRootDir: import.meta.dirname
+				project: './tsconfig.json',
+				tsconfigRootDir: __dirname,
+				sourceType: 'module'
 			}
-		}
-	},
-	{
+		},
+		plugins: {
+			'@typescript-eslint': '@typescript-eslint/eslint-plugin'
+		},
 		rules: {
 			'@typescript-eslint/interface-name-prefix': 'off',
 			'@typescript-eslint/explicit-function-return-type': 'off',
 			'@typescript-eslint/explicit-module-boundary-types': 'off',
-			'@typescript-eslint/no-explicit-any': 'off'
+			'@typescript-eslint/no-explicit-any': 'off',
+			'@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '^_' }]
 		}
+	},
+	{
+		ignores: ['.eslintrc.js']
 	}
-)
+]
