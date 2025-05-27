@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { DatabaseConfig } from './shared/database/database.config'
 import { DatabaseService } from './shared/database/database.service'
+import { UsersModule } from './modules/users/users.module'
 
 @Module({
 	imports: [
@@ -12,7 +13,8 @@ import { DatabaseService } from './shared/database/database.service'
 			useFactory: async (configService: ConfigService) =>
 				DatabaseConfig.createTypeOrmOptions(configService),
 			inject: [ConfigService]
-		})
+		}),
+		UsersModule
 	],
 	controllers: [],
 	providers: [DatabaseService]
