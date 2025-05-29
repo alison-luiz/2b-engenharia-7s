@@ -1,5 +1,36 @@
 # API de Gerenciamento de Tarefas
 
+## Instalação e Execução
+
+1. Clone o repositório
+```bash
+git clone https://github.com/alison-luiz/2b-engenharia-7s
+cd 2b-engenharia-7s
+```
+
+2. Configure o ambiente
+```bash
+# Copie o arquivo .env.example para .env
+cp .env.example .env
+```
+
+3. Inicie o banco de dados com Docker
+```bash
+docker-compose up -d
+```
+
+4. Instale as dependências
+```bash
+yarn install
+```
+
+5. Inicie o servidor em modo desenvolvimento
+```bash
+yarn start:dev
+```
+
+O servidor estará rodando em `http://localhost:3000`
+
 ## Autenticação
 
 Todas as rotas requerem autenticação JWT. Inclua o token no header das requisições:
@@ -84,7 +115,7 @@ Authorization: Bearer {{token}}
         "firstName": "Alison",
         "lastName": "Luiz",
         "email": "alison_luiz@outlook.com.br",
-        "roles": ["ADMIN"]
+        "roles": ["USER"]
     }
 }
 ```
@@ -107,7 +138,7 @@ Authorization: Bearer {{token}}
             "firstName": "Alison",
             "lastName": "Luiz",
             "email": "alison_luiz@outlook.com.br",
-            "roles": ["ADMIN"]
+            "roles": ["USER"]
         }
     },
     {
@@ -123,7 +154,7 @@ Authorization: Bearer {{token}}
             "firstName": "Alison",
             "lastName": "Luiz",
             "email": "alison_luiz@outlook.com.br",
-            "roles": ["ADMIN"]
+            "roles": ["USER"]
         }
     }
 ]
@@ -146,7 +177,7 @@ Authorization: Bearer {{token}}
         "firstName": "Alison",
         "lastName": "Luiz",
         "email": "alison_luiz@outlook.com.br",
-        "roles": ["ADMIN"]
+        "roles": ["USER"]
     }
 }
 ```
@@ -177,7 +208,7 @@ Authorization: Bearer {{token}}
         "firstName": "Alison",
         "lastName": "Luiz",
         "email": "alison_luiz@outlook.com.br",
-        "roles": ["ADMIN"]
+        "roles": ["USER"]
     }
 }
 ```
@@ -185,6 +216,7 @@ Authorization: Bearer {{token}}
 ### Deletar Tarefa
 - **DELETE** `/tasks/:id`
 - **Retorno (200 OK):**
+- **Role: ADMIN**
 ```json
 {
     "message": "Task deleted successfully"
