@@ -1,0 +1,926 @@
+{
+	"info": {
+		"_postman_id": "e5072b8b-bcdf-4fea-b91e-da1398976f58",
+		"name": "JWT - EB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27403992"
+	},
+	"item": [
+		{
+			"name": "JWT",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Alison\",\r\n    \"lastName\": \"Silva\",\r\n    \"email\": \"alison_luiz@outlook.com.br\",\r\n    \"password\": \"senha@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Alison\",\r\n    \"lastName\": \"Silva\",\r\n    \"email\": \"alison_luiz@outlook.com.br\",\r\n    \"password\": \"senha@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-0Lp09D5fVMlDAVSmogNEQBUnnMI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:31:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"4feb4923-2e1c-4c0e-8806-cb8d74e34ef0\",\n    \"firstName\": \"Alison\",\n    \"lastName\": \"Silva\",\n    \"email\": \"alison_luiz@outlook.com.br\",\n    \"roles\": [\n        \"User\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"alison_luiz@outlook.com.br\",\r\n    \"password\": \"senha@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"alison_luiz@outlook.com.br\",\r\n    \"password\": \"senha@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "479"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1df-xW8EY18I5SErHUBtOMb/4YbBzP8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:33:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZmViNDkyMy0yZTFjLTRjMGUtODgwNi1jYjhkNzRlMzRlZjAiLCJlbWFpbCI6ImFsaXNvbl9sdWl6QG91dGxvb2suY29tLmJyIiwiZmlyc3ROYW1lIjoiQWxpc29uIiwibGFzdE5hbWUiOiJTaWx2YSIsInJvbGVzIjpbIlVzZXIiXSwiaWF0IjoxNzQ4NDc4ODA2LCJleHAiOjE3NDg1NjUyMDZ9.-cAH-W-8P6MM2M6Hv7iENaP2ymDbCJdROuVjzKfp5eY\",\n    \"user\": {\n        \"firstName\": \"Alison\",\n        \"lastName\": \"Silva\",\n        \"email\": \"alison_luiz@outlook.com.br\",\n        \"roles\": [\n            \"User\"\n        ],\n        \"id\": \"4feb4923-2e1c-4c0e-8806-cb8d74e34ef0\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Alison\",\r\n    \"lastName\": \"Silva\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Alison\",\r\n    \"lastName\": \"Silva\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-0Lp09D5fVMlDAVSmogNEQBUnnMI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:43:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"4feb4923-2e1c-4c0e-8806-cb8d74e34ef0\",\n    \"firstName\": \"Alison\",\n    \"lastName\": \"Silva\",\n    \"email\": \"alison_luiz@outlook.com.br\",\n    \"roles\": [\n        \"User\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"senha@123\",\r\n    \"newPassword\": \"senha@321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/me/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me",
+								"password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change Password",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"senha@123\",\r\n    \"newPassword\": \"senha@321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/me/password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"me",
+										"password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-1leFLxO9pvRJ4B0CZIygDRcnOKs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:44:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Role to ADM",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"alison_luiz@outlook.com.br\",\r\n    \"secretAdminKey\": \"49wge595fd5dfg1dfg9fg51951dfggf9daf51dg951951\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/role/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"role",
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change Role to ADM",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"alison_luiz@outlook.com.br\",\r\n    \"secretAdminKey\": \"49wge595fd5dfg1dfg9fg51951dfggf9daf51dg951951\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/role/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"role",
+										"admin"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-hBjs0eqrvAnwbf7eE1krLH7QLZc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:47:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User role updated successfully.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "TASKS",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "434"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b2-wTeHzPS6kVTZx65aGlI2Of615l4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:58:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"ea603c9f-9f10-4148-aa2b-632a6912f27c\",\n        \"title\": \"Implementar autenticação\",\n        \"description\": \"Implementar sistema de autenticação JWT com refresh token\",\n        \"completed\": true,\n        \"dueDate\": \"2025-05-28\",\n        \"user\": {\n            \"id\": \"4feb4923-2e1c-4c0e-8806-cb8d74e34ef0\",\n            \"firstName\": \"Alison\",\n            \"lastName\": \"Silva\",\n            \"email\": \"alison_luiz@outlook.com.br\",\n            \"roles\": [\n                \"Administrator\"\n            ]\n        },\n        \"createdAt\": \"2025-05-29T03:55:41.335Z\",\n        \"updatedAt\": \"2025-05-29T03:57:48.942Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Implementar autenticação\",\r\n    \"description\": \"Implementar sistema de autenticação JWT com refresh token\",\r\n    \"dueDate\": \"2025-05-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Implementar autenticação\",\r\n    \"description\": \"Implementar sistema de autenticação JWT com refresh token\",\r\n    \"dueDate\": \"2025-05-28\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "433"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b1-DAi3hwfRvrLETPRh1leH7V2+3dU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:55:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"ea603c9f-9f10-4148-aa2b-632a6912f27c\",\n    \"title\": \"Implementar autenticação\",\n    \"description\": \"Implementar sistema de autenticação JWT com refresh token\",\n    \"completed\": false,\n    \"dueDate\": \"2025-05-28\",\n    \"user\": {\n        \"id\": \"4feb4923-2e1c-4c0e-8806-cb8d74e34ef0\",\n        \"firstName\": \"Alison\",\n        \"lastName\": \"Silva\",\n        \"email\": \"alison_luiz@outlook.com.br\",\n        \"roles\": [\n            \"Administrator\"\n        ]\n    },\n    \"createdAt\": \"2025-05-29T03:55:41.335Z\",\n    \"updatedAt\": \"2025-05-29T03:55:41.335Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Implementar autenticação\",\r\n    \"description\": \"Implementar sistema de autenticação JWT com refresh token\",\r\n    \"dueDate\": \"2025-05-28\",\r\n    \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/ea603c9f-9f10-4148-aa2b-632a6912f27c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"ea603c9f-9f10-4148-aa2b-632a6912f27c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Task",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Implementar autenticação\",\r\n    \"description\": \"Implementar sistema de autenticação JWT com refresh token\",\r\n    \"dueDate\": \"2025-05-28\",\r\n    \"completed\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tasks/ea603c9f-9f10-4148-aa2b-632a6912f27c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks",
+										"ea603c9f-9f10-4148-aa2b-632a6912f27c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "432"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b0-GDt0MAetf4Wt3SqrkAL3d6Ly3d0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 00:57:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"ea603c9f-9f10-4148-aa2b-632a6912f27c\",\n    \"title\": \"Implementar autenticação\",\n    \"description\": \"Implementar sistema de autenticação JWT com refresh token\",\n    \"completed\": true,\n    \"dueDate\": \"2025-05-28\",\n    \"user\": {\n        \"id\": \"4feb4923-2e1c-4c0e-8806-cb8d74e34ef0\",\n        \"firstName\": \"Alison\",\n        \"lastName\": \"Silva\",\n        \"email\": \"alison_luiz@outlook.com.br\",\n        \"roles\": [\n            \"Administrator\"\n        ]\n    },\n    \"createdAt\": \"2025-05-29T03:55:41.335Z\",\n    \"updatedAt\": \"2025-05-29T03:57:48.942Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks/ea603c9f-9f10-4148-aa2b-632a6912f27c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"ea603c9f-9f10-4148-aa2b-632a6912f27c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Task",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tasks/ea603c9f-9f10-4148-aa2b-632a6912f27c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks",
+										"ea603c9f-9f10-4148-aa2b-632a6912f27c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-urf4l4W7aUjEqcMghGgrIBDtf0M\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 May 2025 01:00:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Task deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

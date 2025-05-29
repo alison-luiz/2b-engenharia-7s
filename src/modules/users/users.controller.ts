@@ -14,6 +14,8 @@ import { UpdateUserDto } from './dto/update-user.dto'
 import { UpdateUserPasswordDto } from './dto/update-user-password.dto'
 import { UserFromJwt } from '../auth/models/user-from-jwt'
 import { UsersService } from './users.service'
+import { Roles } from './decorators/roles.decorator'
+import { Role } from './enums/role.enum'
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('users')
@@ -32,6 +34,7 @@ export class UsersController {
 		return this.usersService.changeRoleAdmin(changeRoleAdminDto)
 	}
 
+	@Roles(Role.USER)
 	@Patch('me')
 	async update(
 		@CurrentUser() user: UserFromJwt,
@@ -40,6 +43,7 @@ export class UsersController {
 		return this.usersService.update(user.id, updateUserDto)
 	}
 
+	@Roles(Role.USER)
 	@Patch('me/password')
 	async updatePassword(
 		@CurrentUser() user: UserFromJwt,

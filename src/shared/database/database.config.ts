@@ -2,6 +2,7 @@ import { ConfigService } from '@nestjs/config'
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 
 import { User } from '@/modules/users/entities/user.entity'
+import { Task } from '@/modules/tasks/entities/task.entity'
 
 export class DatabaseConfig {
 	static createTypeOrmOptions(
@@ -12,7 +13,7 @@ export class DatabaseConfig {
 			url: configService.get('DATABASE_URL'),
 			ssl: false,
 			useUTC: true,
-			entities: [User],
+			entities: [User, Task],
 			synchronize: true,
 			connectTimeoutMS: 30000,
 			logging: false,
